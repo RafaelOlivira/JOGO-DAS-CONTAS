@@ -27,4 +27,4 @@ while True:
         exit()
     else:
         time.sleep(1)
-        print("Opção inválida!")
+        print("A opção é inválida!")
