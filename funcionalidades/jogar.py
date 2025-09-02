@@ -2,7 +2,7 @@ import random
 import os
 from .operadores import *
 from .salvar_pontuacao import salvar
-
+import banco
 def jogar():
     pontuacao = 0
     while True:
@@ -36,6 +36,5 @@ def jogar():
             nome_jogador = input("Digite seu nome: ")
             salvar(nome_jogador,pontuacao)
             _ = input("Pressione qualquer tecla para continuar...")
+            banco.add_banco(nome_jogador,pontuacao)
             break
-            
-                
