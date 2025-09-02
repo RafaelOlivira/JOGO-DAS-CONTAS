@@ -1,6 +1,9 @@
 from .jogar import *
+import sqlite3
 
-def salvar(nome_jogador,pontuacao):
-    with open("pontuacao.txt","a") as arq:
-        jogador = "Jogador: "+nome_jogador+" "+"Pontuacao: "+str(pontuacao)+"\n"
-        arq.write(jogador)
+def add_banco(nome_jogador,pontuacao):
+    conexao = sqlite3.connect("db_jogo.db")
+    conexao.execute("insert into placar (nome,pontuacao) values(?,?);",
+                    (nome_jogador,pontuacao))
+    conexao.commit()
+    conexao.close()
